@@ -1,0 +1,38 @@
+
+.board{
+    display: flex;
+    flex-direction: column;
+    border: 8px solid #6e4102;
+    margin-top: 2rem;
+    width: fit-content;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+.heading{
+    font-size: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.Iterations{
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    overflow-y: scroll;
+    padding: 8px;
+    scrollbar-width:none;
+    border-radius: 5px;
+}
+.Iteration-Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;    right: 0;
+    height: 100vh;
+}

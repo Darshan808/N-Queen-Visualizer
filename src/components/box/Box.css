@@ -1,0 +1,45 @@
+
+.box{
+    height: 65px;
+    width: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.white{
+    background-color: #FCCD90;
+}
+.black{
+    background-color: #FF9F1C;
+}
+.green{
+    background-color: green;
+}
+
+@keyframes popupQueen {
+    0% {
+        transform: scale(0.07);
+    }
+
+    50% {
+        transform: scale(0.1);
+    }
+
+    100% {
+        transform: scale(0.07);
+    }
+}
+
+.queen {
+    animation-name: popupQueen;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    transform-origin: center;
+    transform-box: fill-box;
+    animation-timing-function: ease-in-out;
+    transition: 400ms all;
+    
+}
