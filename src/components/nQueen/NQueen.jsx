@@ -4,6 +4,7 @@ import "./NQueen.css";
 import Box from "../box/Box";
 import { getAllQueen } from "../../algorithms/getAllQueen";
 import Iteration from "../iteration/iteration";
+import { useTheme } from "../../ThemeContext";
 // import { animateQueens } from "../../algorithms/animateQueens";
 
 const NQueen = () => {
@@ -11,6 +12,8 @@ const NQueen = () => {
   const [isBoardClear, setIsBoardClear] = useState(true);
   const [isVisualizing, setIsVisualizing] = useState(false);
   const [iterations, setIterations] = useState([]);
+  const { theme, changeTheme } = useTheme();
+
 
   const animateQueens = (queens = [], placedQueens = []) => {
     let l = queens.length;
@@ -57,6 +60,11 @@ const NQueen = () => {
     else reset();
   }
 
+  const handleThemeChange = (event) => {
+    console.log(event.target.value);
+    changeTheme(event.target.value);
+  };
+
   return (
     <>
       <h1 className="heading">
@@ -64,12 +72,20 @@ const NQueen = () => {
         <span style={{ color: "yellow" }}>N-Queen </span>
         <span style={{ color: "#AAFF00" }}>Visualizer</span>
       </h1>
-      <div className="button" onClick={() => handleClick()}>
-        {isBoardClear
-          ? "Visualise N-Queens"
-          : isVisualizing
-          ? "Visualizing..."
-          : "Reset"}
+      <div style={{display:"flex", margin:10}}>
+        <div className="button" onClick={() => handleClick()}>
+          {isBoardClear
+            ? "Visualise N-Queens"
+            : isVisualizing
+            ? "Visualizing..."
+            : "Reset"}
+        </div>
+        <select value={theme} onChange={handleThemeChange} style={{margin:20}} className="select">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        </select>
       </div>
       <div className="board" id="Board">
         {board.map((row, rowIndx) => {
